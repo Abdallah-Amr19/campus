@@ -36,10 +36,11 @@ header {
    
   }
   .imgL{
-    width: 45px;
-    height: 45px;
+    width: 6.43vw;
+    height: 6.63vw;
+
   }
-  .join{
+  .butonshedden{
     display: none;
   }
   .innerNav{
@@ -87,7 +88,7 @@ header {
 }
 
 .nav ul li {
-  padding: 0.55vw 1.11vw;
+  padding: 0.55vw 2.11vw;
 }
 
 .nav ul li a {
@@ -101,8 +102,29 @@ header {
   text-decoration: none;
 }
 
-.nav button {
+.join .b1 {
   display: flex;
+  padding: 0.55vw 1.11vw;
+  justify-content: center;
+  align-items: center;
+  color:#00008d ;
+  text-align: center;
+  font-family: "Baloo Bhaijaan 2";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  border-radius: 50px;
+  border:1.5px solid #00008d ;
+  background: white;
+
+}
+.join{
+  display: flex;
+  gap: 0.55vw;
+}
+.join .b2{
+display: flex;
   padding: 0.55vw 1.11vw;
   justify-content: center;
   align-items: center;
@@ -114,10 +136,10 @@ header {
   font-weight: 500;
   line-height: normal;
   border-radius: 50px;
-  background: var(--Mailn-color, #00008d);
   border: none;
-}
+  background: var(--Mailn-color, #00008d);
 
+}
 .search {
   display: flex;
   max-width: 100%;
@@ -138,18 +160,7 @@ header {
   margin-top: 84px;
 } */
 
-.filter-container {
-  flex: 0.5;
-  padding: 0 1.11vw;
-  background: white;
-  border-radius: 0.55vw;
-  border: 1.5px solid var(--Gray400, #98a2b3);
-  border-radius: 10px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 0.55vw;
-}
+
 
 .filter-text {
   text-align: right;
@@ -172,24 +183,125 @@ header {
   .icon-container .image{
     width: 45px;
     height: 45px;
-    transform: translate(-107%);
+    transform: translate(-58%);
   }
 }
 
-.icon-container {
-  width: 1.11vw;
-  height: 1.11vw;
+.filter-container {
+  flex: 0.5;
+
+  position: relative; /* للسماح بتحديد موقع العناصر الفرعية */
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: flex-end;
+  background: white;
+  border: 1.5px solid #98a2b3;
+  border-radius: 10px;
+  /* border-top-right-radius: 10px; */
+  padding: 0 1vw;
+  gap: 0.5vw;
 }
 
-/* .icon {
-  width: 1.11vw;
-  height: 1.11vw;
-  stroke: #98a2b3;
-  align-items: center;
-} */
+/* النص */
+.filter-text {
+  font-size: 24px;
+  color: #98a2b3;
+  text-align: right;
+  font-weight: 400;
+}
+
+
+.icon-container {
+  position: relative; 
+  cursor: pointer;
+}
+.filter-container.open {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.dropdown-list {
+  display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    inline-size: calc(100% + 2px);
+    background: white;
+    border: 1.5px solid #98a2b3;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    z-index: 10;
+    margin-right: -1px;
+}
+.dropdown-menuformat img {
+  transition: transform 0.3s ease;
+}
+
+/* عند التفعيل، يدور السهم */
+.rotate {
+  transform: rotate(180deg);
+}
+.dropdown-list.open {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.aa{
+  border: 1.5px solid #98a2b3;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.dropdown-menu2,.dropdown-menu3,.dropdown-menu4{
+  display: none;
+
+}
+
+.start{
+  direction: rtl;
+}
+
+
+.dropdown-menuformat a {
+  color: #000;
+display: flex;
+justify-content: flex-end;
+text-align: right;
+font-family: "Baloo Bhaijaan 2";
+font-size: 32px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+text-decoration: none;
+padding-inline: 8px;
+}
+@media (max-width: 858px) {
+  .dropdown-menuformat a{
+font-size: 16px;
+padding-inline: 4px;
+  }
+#checkbox{
+  width: 10px;
+
+}
+
+  }
+
+
+#checkbox{
+  /* display: flex;
+justify-content: flex-end;
+align-items: center; */
+gap: 8px;
+align-self: stretch;
+width: 20px;
+border-radius: 4px;
+background: var(--Mailn-color, #00008D);
+
+}
+
+
+
+
+
 
 .search-container {
   flex-shrink: 0;
@@ -205,7 +317,7 @@ header {
 }
 
 .search-input {
-  padding: 12px 48px;
+  padding: 12px 52.5px;
   border: 1.5px solid var(--Gray400, #98a2b3);
   border-radius: 10px;
   font-family: "Baloo Bhaijaan 2", sans-serif;
@@ -222,6 +334,7 @@ header {
 .search-input::placeholder {
   color: #98a2b3;
   text-align: right;
+  padding-left: 10px;
 }
 
 .search-icon {
@@ -231,6 +344,7 @@ header {
   transform: translateY(-50%);
   color: #98a2b3;
   pointer-events: none;
+  padding-right: 16px;
 }
 
 .search-icon svg {
@@ -273,6 +387,7 @@ header {
   /* position: relative; */
   /* overflow: hidden; */
 }
+
 .row {
   display: grid;
 
@@ -286,6 +401,12 @@ header {
     grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
     gap: 8px 8px;
   }
+  
+}
+@media (max-width: 631px) {
+  #heddencards{
+    display: none;
+  }
 }
 
 @media (max-width: 442px) {
@@ -293,6 +414,7 @@ header {
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
     gap: 8px 8px;
   }
+  
 }
 
 .card {
@@ -306,6 +428,7 @@ header {
   align-items: center;
   /* width: 193px; */
 }
+
 
 .card-text {
   text-align: right;
@@ -330,6 +453,14 @@ header {
   color: white;
   font-weight: 600;
 }
+@media (max-width: 442px) {
+  .special .card-text{
+  font-weight: 400;
+
+  }
+
+}
+
 
 .arrows-container {
   display: flex;
@@ -501,7 +632,10 @@ position: relative;
 
 }
 .more-button:hover{
- 
+ background: #00008D;
+ width: 105px;
+ border-radius:50px ;
+ cursor: pointer;
 .Vector{
   transform: rotate(45deg);
   width: 30px;
@@ -510,10 +644,7 @@ position: relative;
 .more-text{
   color: #fff;
 }
-border-radius: 50px;
-background-color: var(--Mailn-color, #00008D);
-border: 1px solid transparent;
-width: 106px;
+
 }
 
 
@@ -551,9 +682,22 @@ hr {
   align-self: stretch;
 }
 
+@media (max-width: 858px) {
+  .responsiveF{
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}
+
+
 .footer {
   background-color: var(--maincolor--);
   text-align: center;
+}
+@media (max-width: 858px) {
+  .footer{
+    padding: 1.25vw;
+  }
 }
 
 .contact-info {
@@ -583,6 +727,12 @@ hr {
   padding-bottom: 2.8vw;
   transform: translateX(-1%);
 }
+@media (max-width: 858px) {
+  .phone{
+    padding-bottom: 1.46vw;
+gap: 27px;
+  }
+}
 
 .phone span,
 .social-media span {
@@ -606,11 +756,73 @@ hr {
 .social-media {
   gap: 1.7vw;
 }
+@media (max-width: 858px) {
+
+  .social-media{
+    padding-top: 1.46vw;
+    padding-bottom: 11px;
+    transform: translateX(-2.5%);
+  }
+}
+
 
 .logo {
   display: flex;
   justify-content: flex-end;
 }
+.RFL{
+  display: none;
+}
+
+
+@media (max-width: 858px) {
+  .RFL-S{
+    flex-direction: column-reverse;
+    display: flex;
+    border-bottom: 1px solid white;
+    border-top: 1px solid white;
+    margin-bottom: 3.75vw;
+  }
+  .RFL{
+  display: block;
+  width: 30.54vw;
+
+}
+
+.logoF{
+  
+display: none;
+}
+.cumpsF{
+  
+
+  display: none;
+  }
+  .logoRFL{
+ display: flex;
+ transform: translateX(8.5%);
+ padding-top: 5.66vw;
+ padding-bottom: 4.44vw;
+  
+  }
+}
+/* لجميع أحجام الشاشات أقل من 768px */
+@media (max-width: 768px) {
+  .RFL {
+    display: block;
+    width: 37.54vw; /* نسبة مئوية بالنسبة لعرض الشاشة */
+  }
+}
+
+/* تخصيص لأحجام الشاشات الصغيرة جداً */
+@media (max-width: 480px) {
+  .RFL {
+    display: block;
+    width: 37.54vw;
+  }
+}
+
+
 
 .logo .logoF {
   width: 7.1728vw;
@@ -630,6 +842,14 @@ hr {
   justify-content: space-around;
   padding: 1vw 0;
 }
+@media (max-width: 858px) {
+  .footer-links{
+    gap: 1.09vw; 
+  }
+  hr{
+    display: none;
+  }
+}
 
 .footer-links a {
   color: white;
@@ -645,6 +865,13 @@ hr {
   align-self: stretch;
   border-bottom: 1px solid #d0d5dd;
 }
+@media (max-width: 858px) {
+  .info{
+flex-direction:column-reverse;
+padding: 0.83vw;
+margin-bottom: 1.66vw;
+  }
+}
 
 .copyright {
   margin-top: 1vw;
@@ -658,3 +885,10 @@ hr {
   line-height: normal;
   opacity: 0.7;
 }
+@media (max-width: 858px) {
+  .copyright p{
+    font-size: 2.4vw; 
+    padding-top: 0.83vw;
+  }
+}
+

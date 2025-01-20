@@ -15,16 +15,20 @@
       <div class="listicon mm">
         <img class="imgL" src="./imags/textalign-justifycenter.svg" alt="">
       </div>
-      <div class="join">
-        <button>تسجيل الخروج</button>
-
-      </div>
+<div class="butonshedden">
+  <div class="join">
+    <button class="b1">إنشاء حساب</button>
+    <button class="b2">تسجيل دخول</button>
+  </div>
+</div>
+     
 <div class="innerNav">
   <div class="link">
     <ul>
-      <li><a href="#">الحساب الشخصي </a></li>
-      <li><a href="#"> الموجهين</a></li>
-      <li class="check"><a href="#">الرئيسية</a></li>
+      <li><a href="#">ارقامنا</a></li>
+      <li><a href="#"> التقييمات</a></li>
+      <li><a href="#"> مجالاتنا</a></li>
+      <li class="check"><a href="#">من نحن</a></li>
     </ul>
   </div>
 </div>
@@ -34,19 +38,46 @@
 
     <section class="search">
       <!-- <div class="main-container"> -->
-      <div class="filter-container">
-        <div class="filter-text">فلتر</div>
-        <div class="icon-container">
-          <img class="image" src="./imags/mage_filter (2).svg" alt="" />
+        <div class="filter-container">
+          <div class="filter-text">فلتر</div>
+          <div class="icon-container">
+            <img class="image" src="./imags/mage_filter (2).svg" alt="" id="toggleDropdown" />
+          </div>
+          <div class="dropdown-list open">
+
+            <div class="dropdown-menu1 dropdown-menuformat">
+              <a href="#"><span id="langA"><img class="rotate"  src="./imags/arrow-up.svg" alt=""></span> اللغة</a>
+              <div class="dropdown-menu2 dropdown-menuformat">
+                <a href="#"> الأنجليزية <input type="checkbox" name="" id="checkbox"></a>
+                <a href="#"> الفرنسية <input type="checkbox" name="" id="checkbox"></a>
+                <a href="#"> الألمانية <input type="checkbox" name="" id="checkbox"></a>
+              </div>
+              <a href="#"><span id="A2"><img class="rotate" src="./imags/arrow-up.svg" alt=""></span> الخبرة</a>
+              <div class="dropdown-menu3 dropdown-menuformat">
+                <a href="#"> من 1 الي 3<input type="checkbox" name="" id="checkbox"></a>
+                <a href="#"> من 3 الي 5<input type="checkbox" name="" id="checkbox"></a>
+                <a href="#"> من 5 الي 7<input type="checkbox" name="" id="checkbox"></a>
+              </div>
+              <a href="#"><span id="A3"><img class="rotate" src="./imags/arrow-up.svg" alt=""></span> المجال</a>
+              <div class="dropdown-menu4 dropdown-menuformat start">
+                <a href="#"><img src="./imags/arrow-down.svg" alt="">  front-end<input type="checkbox" name="" id="checkbox"></a>
+                <a href="#"><img src="./imags/arrow-down.svg" alt="">  back-end<input type="checkbox" name="" id="checkbox"></a>
+                <a href="#"><img src="./imags/arrow-down.svg" alt="">  full-stuck<input type="checkbox" name="" id="checkbox"></a>
+              </div>
+            </div>
+           
+
+          </div>
         </div>
+        
+
       </div>
       <div class="search-container">
-        <!-- <div class="search-wrapper"> -->
         <input type="text" class="search-input" placeholder="البحث" />
         <span class="search-icon">
           <img src="./imags/ri_search-line (1).svg" alt="" />
         </span>
-        <!-- </div> -->
+        
       </div>
       <!-- </div> -->
     </section>
@@ -54,7 +85,7 @@
     <!-- ***** -->
     <div class="container">
       <div class="row">
-        <div class="card">
+        <div class="card" >
           <div class="card-text">التسويق</div>
         </div>
         <div class="card">
@@ -63,13 +94,14 @@
         <div class="card">
           <div class="card-text">التسويق</div>
         </div>
-        <div class="card">
+    
+        <div class="card" id="heddencards">
           <div class="card-text">التسويق</div>
         </div>
-        <div class="card">
+        <div class="card" id="heddencards">
           <div class="card-text">البرمجة</div>
         </div>
-        <div class="special card">
+        <div class="special card" id="heddencards">
           <div class="card-text">التصميم</div>
         </div>
       </div>
@@ -341,7 +373,8 @@
 
     <footer class="footer">
       <hr />
-      <div class="section1F">
+      <div class="section1F responsiveF">
+        <span class="RFL-S">
         <div class="contact-info">
           <div class="phone">
             <span
@@ -361,11 +394,17 @@
             <span>: مواقع التواصل</span>
           </div>
         </div>
+        <div class="logoRFL">
+          
+          <img src="./imags/rEL-LOGO.png" class="RFL" alt="">
+        </div>
+      </span>
         <div class="logo">
           <img class="logoF" src=".//imags/footer-imag.png" alt="campus logo" />
           <img class="cumpsF" src=".//imags/footerCaumps.png" alt="" />
         </div>
       </div>
+    
 
       <div class="info">
         <div class="copyright">
