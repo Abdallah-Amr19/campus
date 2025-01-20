@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>انضم كموجه مهني - Campus</title>
+    
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;500;600;700&display=swap">
+    
+    
+    <link rel="stylesheet" href="join.css">
+</head>
+<body>
+    <div class="sign-up">
+        <!-- Left Section with Illustration -->
+        <div class="left-section">
+            <div class="logo-container">
+              <a href="./join7.html"> <img src="./imags/logo2.svg" alt="Campus Logo" class="pec"></a> 
+                
+            </div>
+            <div class="illustration-container">
+                <img src="./imags/Frame 1171278110.png" alt="" class="illustration">
+            </div>
+        </div>
+
+        <!-- Right Section with Form -->
+        <div class="right-section">
+            <h1 class="main-title">انضم كموجه مهني</h1>
+            
+            <form class="signup-form" method="post">
+                <!-- Specialization Field -->
+				<div class="form-group">
+					<label class="form-label">التخصص:</label>
+					<div class="select-wrapper">
+						<select name="specialization" required>
+							<option value="ui-ux">UI\UX Design</option>
+							<option value="graphic">Graphic Design</option>
+							<option value="web">Web Development</option>
+						</select>
+						<img src="./imags/arrow-down.svg" alt="" class="select-icon">
+					</div>
+				</div>
+
+                <!-- Experience Years Field -->
+                <div class="form-group">
+                    <label class="form-label">عدد سنوات الخبرة:</label>
+                    <div class="select-wrapper">
+                        <select name="experience" required>
+                            <option value="1-3">1-3 سنين خبرة</option>
+                            <option value="3-5">3-5 سنين خبرة</option>
+                            <option value="5+">أكثر من 5 سنوات</option>
+                        </select>
+						<img src="./imags/arrow-down.svg" alt="" class="select-icon">
+
+                    </div>
+                </div>
+
+                <!-- Target Trainees Field -->
+                <div class="form-group">
+                    <label class="form-label">الفئه المستهدفه من المتدربين:</label>
+                    <div class="select-wrapper">
+                        <select name="target_group" required>
+                            <option value="beginners">المبتدئين</option>
+                            <option value="intermediate">متوسطي الخبرة</option>
+                            <option value="advanced">ذوي الخبرة</option>
+                        </select>
+						<img src="./imags/arrow-down.svg" alt="" class="select-icon">
+
+                    </div>
+                </div>
+
+                <!-- About Me Field -->
+                <div class="form-group">
+                    <label class="form-label">نبذة عني:</label>
+                    <textarea 
+                        name="about_me" 
+                        placeholder="هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى"
+                        required
+                    ></textarea>
+                </div>
+
+                <!-- CV Upload Section -->
+                <div class="upload-section">
+                    <input 
+                        type="file" 
+                        id="cv-upload" 
+                        name="cv" 
+                        accept=".pdf,.doc,.docx" 
+                        style="display: none;"
+                        required
+                    >
+                    <div id="file-display" style="display: none;">
+                        <div class="file-info">
+                            <img src="./imags/document-text.svg" alt="ملف" class="file-icon">
+                            <div class="file-name-wrapper">
+                                <div>
+                                    <p class="file-name"></p>
+                                    <p class="file-size"></p>
+                                </div>
+                            </div>
+                            <img src="./imags/trash.svg" alt="حذف" class="delete-icon">
+                            <img src="./imags/tick-circle.svg" class="success-icon" alt="">
+                        </div>
+                        <div class="progress-container">
+                            <div class="progress-bar">
+                                <div class="progress-fill"></div>
+                            </div>
+                            <div class="progress-text">0%</div>
+                        </div>
+                    </div>
+                    <label for="cv-upload" class="upload-content" id="upload-label">
+                        <div class="upload-icon">
+                            <img src="./imags/folder-add.svg" alt="Upload Icon">
+                        </div>
+                        <div class="upload-text">
+                            <p>اضغط لرفع السيرة الذاتية</p>
+                            <span>(الحد الاقصى لحجم الملف: 25 MB)</span>
+                            <p>اضغط للعرض</p>
+                        </div>
+                    </label>
+                </div>
+                <button onclick="openInNewTab()" type="submit" class="submit-btn">انضم</button>
+
+            
+                <script>
+                  document.addEventListener('DOMContentLoaded', function () {
+    const fileInput = document.getElementById('cv-upload');
+    const fileDisplay = document.getElementById('file-display');
+    const uploadLabel = document.getElementById('upload-label');
+    const fileName = document.querySelector('.file-name');
+    const fileSize = document.querySelector('.file-size');
+    const deleteIcon = document.querySelector('.delete-icon');
+    const successIcon = document.querySelector('.success-icon');
+    const progressFill = document.querySelector('.progress-fill');
+    const progressText = document.querySelector('.progress-text');
+    const viewText = document.querySelector('.upload-text p:last-child');
+    console.log(viewText);  // أضف هذا في بداية الكود بعد تعريف المتغير
+    const progressContainer = document.querySelector('.progress-container');
+
+    // Hide view text initially
+    viewText.style.display = 'none';
+
+    fileInput.addEventListener('change', function (e) {
+        const file = e.target.files[0];
+        if (file) {
+            if (file.size > 25 * 1024 * 1024) {
+                alert('حجم الملف يتجاوز الحد الأقصى المسموح به (25 MB)');
+                this.value = '';
+                return;
+            }
+
+            fileDisplay.style.display = 'block';
+            uploadLabel.style.display = 'none';
+
+            fileName.textContent = file.name;
+            fileSize.textContent = formatFileSize(file.size);
+
+            deleteIcon.style.display = 'block';
+            successIcon.style.display = 'none';
+            viewText.style.display = 'none';
+            progressContainer.style.display = 'block';
+
+            simulateUploadProgress();
+        }
+    });
+
+    deleteIcon.addEventListener('click', function (e) {
+        e.stopPropagation();
+        fileInput.value = '';
+        fileDisplay.style.display = 'none';
+        uploadLabel.style.display = 'flex';
+        resetProgress();
+    });
+
+    function formatFileSize(bytes) {
+        if (bytes < 1024) return bytes + ' B';
+        else if (bytes < 1048576) return (bytes / 1024).toFixed(1) + ' KB';
+        else return (bytes / 1048576).toFixed(1) + ' MB';
+    }
+
+    function simulateUploadProgress() {
+    let progress = 0;
+    progressFill.style.width = '0%';
+    progressFill.classList.remove('complete');
+
+    const interval = setInterval(() => {
+        progress += 5;
+        if (progress <= 100) {
+            progressFill.style.width = progress + '%';
+            progressText.textContent = progress + '%';
+
+            if (progress === 100) {
+                // Show success icon
+                successIcon.style.display = 'block';
+                deleteIcon.style.display = 'none';
+
+                // Add complete class
+                progressFill.classList.add('complete');
+
+                // After 1 second
+                setTimeout(() => {
+                    // Hide progress bar and success icon
+                    progressContainer.style.display = 'none';
+                    successIcon.style.display = 'none';
+
+                    // Show delete icon and view text
+                    deleteIcon.style.display = 'block';
+                    if (viewText) {
+                        viewText.style.display = 'block';
+                        console.log('Showing view text');
+                    }
+                }, 1000);
+            }
+        } else {
+            clearInterval(interval);
+        }
+    }, 200);
+}
+
+    function resetProgress() {
+        progressFill.style.width = '0%';
+        progressText.textContent = '0%';
+        progressFill.classList.remove('complete');
+        deleteIcon.style.display = 'block';
+        successIcon.style.display = 'none';
+        viewText.style.display = 'none';
+        progressContainer.style.display = 'block';
+    }
+});
+                </script>
+</body>
+</html>
