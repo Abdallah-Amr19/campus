@@ -24,7 +24,7 @@ body {
   background-color: #f4f4f4;
   overflow: hidden;
 }
-.sign-up h1 {
+.sign-up .content h1 {
   color: var(--Gray-900, #101828);
   text-align: right;
   font-family: "Baloo Bhaijaan 2";
@@ -33,7 +33,6 @@ body {
   font-weight: 700;
   line-height: normal;
   margin: 0;
-  margin-bottom: 1.11vw;
 }
 .sign-up .image {
   width: 41.11vw;
@@ -57,31 +56,33 @@ body {
   align-self: stretch;
 }
 .sign-up .content {
-  height: 100%;
-  padding: 4.44vw 8.33vw 4.86vw 15.07vw;
+  min-height: 100vh;
+  /* padding: 4.44vw 8.33vw 4.86vw 15.07vw; */
+  padding: 4.44vw 6.33vw 4.86vw 12.07vw;
   width: 57.29vw;
   border-bottom-left-radius: 50px;
   border-top-left-radius: 50px;
   background: var(--White, #fff);
 }
-@media (max-width: 1000px) {
-  .sign-up .image {
-    display: none;
-  }
-  .sign-up .content {
-    width: 100%;
-    /* padding: 16px; */
-  }
-}
-.sign-up .content form {
+
+.sign-up .content form > div {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 3.88vw;
 }
-.sign-up .content form div {
+.sign-up .content form > div > div {
+  display: flex;
+  flex-direction: column;
+  gap: 1.11vw;
+}
+.sign-up .content form div .input-field {
   display: flex;
   flex-direction: column;
   gap: 0.56vw;
+}
+.heddin-form {
+  display: none !important;
 }
 .sign-up .content form div label {
   color: var(--Gray-900, #101828);
@@ -111,7 +112,7 @@ body {
   appearance: none;
   background-image: url(/images/arrow-down.svg);
   background-repeat: no-repeat;
-  background-position: 1.11vw 0.83vw;
+  background-position: 1.11vw 50%;
 }
 .text-color {
   color: var(--Gray500, #667085);
@@ -123,6 +124,9 @@ body {
   font-weight: 400;
   line-height: normal;
 }
+.sign-up .content form > div > div:nth-child(2) {
+  gap: 0.56vw;
+}
 .sign-up .content .span2 {
   color: var(--Gray-900, #101828);
   text-align: center;
@@ -130,9 +134,10 @@ body {
   font-size: 24px;
   font-weight: 400;
   display: block;
-  margin: 3.89vw auto -0.56vw;
+  margin: auto;
   position: relative;
   left: 0.28vw;
+  top: 0;
 }
 .sign-up .content .span2::after {
   left: 20px;
@@ -177,7 +182,8 @@ body {
   border-radius: 7px;
   border: 1px solid;
 }
-.sign-up .content form input[type="submit"] {
+.sign-up .content form input[type="submit"],
+.sign-up .content form .next {
   display: flex;
   padding: 0.83vw 1.11vw;
   justify-content: center;
@@ -185,7 +191,7 @@ body {
   border-radius: 8px;
   background: var(--Mailn-color, #00008d);
   border: none;
-  margin-top: 0.56vw;
+  margin-top: 1.11vw;
   color: #f3fcff;
   text-align: center;
   /* H6/H6-Semi Bold */
@@ -197,5 +203,93 @@ body {
   cursor: pointer;
 }
 .mar-top {
-  margin-top: 9.16vw !important;
+  margin-top: 4.45vw !important;
+}
+@media (max-width: 1024px) {
+  .sign-up .content {
+    padding: 5.46vw 2.34vw;
+  }
+  .sign-up .content form div textarea {
+    height: 10vw;
+  }
+}
+
+@media (max-width: 767px) {
+  .sign-up .image {
+    display: none;
+  }
+  .sign-up .content {
+    width: 100%;
+    padding: 12.26vw 4.26vw;
+  }
+  .sign-up .content h1 {
+    font-size: 28px;
+  }
+  .sign-up .content form > div > div {
+    padding: 2.26vw;
+  }
+  .sign-up .content form div .input-field {
+    gap: 1vw;
+  }
+  .sign-up .content form div input,
+  .sign-up .content form div select,
+  .sign-up .content form div textarea {
+    padding: 2vw 3vw;
+  }
+  .sign-up .content form div textarea {
+    height: 12vw;
+  }
+  .sign-up .content form input[type="submit"],
+  .sign-up .content form .next {
+    padding: 2vw 3vw;
+    font-size: 20px;
+    margin-top: 3vw;
+  }
+  .sign-up .content .other-methods {
+    justify-content: center;
+    gap: 6.4vw;
+  }
+  .sign-up .content .other-methods div img {
+    width: 24px;
+    height: 24px;
+  }
+  .sign-up .content .other-methods div {
+    padding: 2.13vw 4.26vw;
+  }
+  .sign-up .content .other-methods div p {
+    display: none;
+  }
+}
+
+@media (max-width: 550px) {
+  .sign-up .image {
+    display: none;
+  }
+  .sign-up .content {
+    width: 100%;
+    padding: 12.26vw 4.26vw;
+  }
+  .sign-up .content h1 {
+    font-size: 24px;
+  }
+  .sign-up .content form > div > div {
+    gap: 4.26vw;
+  }
+  .sign-up .content form div .input-field {
+    gap: 2.13vw;
+  }
+  .sign-up .content form div input,
+  .sign-up .content form div select,
+  .sign-up .content form div textarea {
+    padding: 3.2vw 4.26vw;
+  }
+  .sign-up .content form div textarea {
+    height: 30vw;
+  }
+  .sign-up .content form input[type="submit"],
+  .sign-up .content form .next {
+    padding: 3.2vw 4.26vw;
+    font-size: 20px;
+    margin: 4.26vw;
+  }
 }
